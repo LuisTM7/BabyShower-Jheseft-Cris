@@ -1,0 +1,268 @@
+---
+---
+
+<section class="event-details" id="details">
+  <img src="/images/resorte.png"  alt="" class="details__deco details__deco--resorte" aria-hidden="true" />
+  <img src="/images/globos.png"   alt="" class="details__deco details__deco--globos"  aria-hidden="true" />
+  <img src="/images/estrella2.png" alt="" class="details__deco details__star details__star--2"  aria-hidden="true" />
+  <img src="/images/estrella1.png" alt="" class="details__deco details__star details__star--3"  aria-hidden="true" />
+  <img src="/images/estrella2.png" alt="" class="details__deco details__star details__star--4"  aria-hidden="true" />
+  <img src="/images/estrella1.png" alt="" class="details__deco details__star details__star--5"  aria-hidden="true" />
+  <img src="/images/estrella2.png" alt="" class="details__deco details__star details__star--6"  aria-hidden="true" />
+  <img src="/images/estrella2.png" alt="" class="details__deco details__star details__star--8"  aria-hidden="true" />
+  <img src="/images/estrella1.png" alt="" class="details__deco details__star details__star--9"  aria-hidden="true" />
+  <img src="/images/estrella2.png" alt="" class="details__deco details__star details__star--10" aria-hidden="true" />
+  <img src="/images/estrella1.png" alt="" class="details__deco details__star details__star--11" aria-hidden="true" />
+  <img src="/images/estrella2.png" alt="" class="details__deco details__star details__star--12" aria-hidden="true" />
+  <div class="container">
+    <h2 class="section-title fade-in">Detalles del Evento</h2>
+    <div class="section-divider fade-in fade-in-delay-1">
+      <img src="/images/oso-solo.png" alt="" width="36" height="36" style="object-fit:contain;" aria-hidden="true" />
+    </div>
+
+    <!-- Tarjeta fecha/hora estilo referencia -->
+    <div class="details__datetime fade-in fade-in-delay-2">
+      <img src="/images/oso-pack1.png" alt="" class="details__datetime-bear" aria-hidden="true" />
+      <div class="details__datetime-inner">
+        <div class="details__dt-side">
+          <div class="details__dt-line"></div>
+          <div class="details__dt-side-inner">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9f7654" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <span class="details__dt-side-text">SÁBADO</span>
+          </div>
+          <div class="details__dt-line"></div>
+        </div>
+        <div class="details__dt-center">
+          <span class="details__dt-day">14</span>
+          <span class="details__dt-month">JUNIO</span>
+        </div>
+        <div class="details__dt-side">
+          <div class="details__dt-line"></div>
+          <div class="details__dt-side-inner">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9f7654" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span class="details__dt-side-text">8:00 PM</span>
+          </div>
+          <div class="details__dt-line"></div>
+        </div>
+      </div>
+      <img src="/images/carritos.png" alt="" class="details__carrito" aria-hidden="true" />
+    </div>
+
+
+
+    <div class="details__note fade-in fade-in-delay-3">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z" fill="var(--color-blue-baby)"/>
+      </svg>
+      <span>Ven lleno de amor y alegría</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z" fill="var(--color-blue-baby)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<style>
+  .event-details {
+    background: linear-gradient(160deg, #dff0fa 0%, #eef7fd 50%, #d4e8f5 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .details__deco {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .details__deco--left {
+    bottom: 0;
+    left: -10px;
+    width: clamp(80px, 20vw, 130px);
+    opacity: 0.8;
+    transform: rotate(10deg);
+  }
+
+  .details__deco--right {
+    top: 10px;
+    right: -10px;
+    width: clamp(80px, 20vw, 130px);
+    opacity: 0.8;
+    transform: rotate(-20deg);
+  }
+
+  .details__deco--globos {
+    top: -10px;
+    left: -10px;
+    width: clamp(90px, 24vw, 150px);
+    opacity: 0.85;
+    animation: float 8s ease-in-out infinite;
+    animation-delay: 0.5s;
+  }
+
+  .details__deco--resorte {
+    bottom: 10px;
+    right: 10px;
+    width: clamp(50px, 12vw, 80px);
+    opacity: 0.85;
+    animation: float 7s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  .details__star {
+    width: clamp(24px, 6vw, 42px);
+    opacity: 0.85;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .details__star--2  { top: 5%;    right: 18%; animation-delay: 0.5s; width: clamp(18px, 4vw, 30px); }
+  .details__star--3  { top: 30%;   left: 4%;   animation-delay: 1s;   width: clamp(20px, 4vw, 32px); }
+  .details__star--4  { top: 28%;   right: 18%; animation-delay: 1.5s; width: clamp(16px, 3.5vw, 26px); }
+  .details__star--5  { bottom: 18%; left: 18%; animation-delay: 2s;   width: clamp(18px, 4vw, 28px); }
+  .details__star--6  { bottom: 10%; right: 20%; animation-delay: 0.3s; }
+  .details__star--8  { top: 18%;   right: 8%;  animation-delay: 1.3s; width: clamp(20px, 4.5vw, 34px); }
+  .details__star--9  { top: 50%;   left: 8%;   animation-delay: 2.2s; width: clamp(16px, 3vw, 22px); }
+  .details__star--10 { top: 48%;   right: 6%;  animation-delay: 2.7s; width: clamp(18px, 4vw, 28px); }
+  .details__star--11 { bottom: 30%; left: 12%; animation-delay: 1.8s; width: clamp(14px, 3vw, 22px); }
+  .details__star--12 { bottom: 25%; right: 10%; animation-delay: 0.6s; width: clamp(16px, 3.5vw, 26px); }
+
+  /* Fecha/Hora */
+  .details__datetime {
+    background: white;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    max-width: 420px;
+    margin: 0 auto 24px;
+    padding: 0 24px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .details__datetime-bear {
+    width: clamp(120px, 35vw, 180px);
+    margin-top: -30px;
+    filter: drop-shadow(0 4px 12px rgba(90,158,200,0.2));
+  }
+
+  .details__datetime-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .details__dt-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .details__dt-side-inner {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .details__dt-side-text {
+    font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #9f7654;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .details__dt-line {
+    width: 100%;
+    height: 2px;
+    background: #9f7654;
+    border-radius: 2px;
+  }
+
+  .details__dt-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 12px;
+  }
+
+  .details__dt-day {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 12vw, 5rem);
+    font-weight: 700;
+    color: #9f7654;
+    line-height: 1;
+  }
+
+  .details__dt-month {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #5a7a9a;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  .details__carrito {
+    width: clamp(100px, 30vw, 160px);
+    object-fit: contain;
+    animation: carrito-roll 4s linear infinite;
+  }
+
+  @keyframes carrito-roll {
+    0%   { transform: translateX(160px);  opacity: 0; }
+    8%   { transform: translateX(160px);  opacity: 1; }
+    92%  { transform: translateX(-160px); opacity: 1; }
+    100% { transform: translateX(-160px); opacity: 0; }
+  }
+
+  /* Lugar */
+  .details__lugar {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    border-radius: var(--radius-pill);
+    padding: 14px 24px;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 20px;
+    color: var(--color-blue-mid);
+  }
+
+  .details__lugar-icon {
+    color: var(--color-blue-mid);
+    flex-shrink: 0;
+  }
+
+  .details__lugar-main {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--color-brown-dark);
+    text-align: left;
+  }
+
+  .details__lugar-sub {
+    font-size: 0.8rem;
+    color: var(--color-text-soft);
+    text-align: left;
+  }
+
+  .details__note {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-text-soft);
+    font-style: italic;
+    font-size: 0.95rem;
+  }
+</style>

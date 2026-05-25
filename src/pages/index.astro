@@ -1,0 +1,155 @@
+---
+import Hero from '../components/Hero.astro';
+import ParentsPhoto from '../components/ParentsPhoto.astro';
+import Ultrasound from '../components/Ultrasound.astro';
+import Countdown from '../components/Countdown.astro';
+import EventDetails from '../components/EventDetails.astro';
+import MapSection from '../components/Map.astro';
+import RSVP from '../components/RSVP.astro';
+import AudioPlayer from '../components/AudioPlayer.astro';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Baby Shower de Jheseft y Cris — 14 de Junio 2025" />
+    <title>Baby Shower · Jheseft &amp; Cris 💙</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Hero />
+    <ParentsPhoto />
+    <EventDetails />
+    <Countdown />
+    <Ultrasound />
+    <MapSection />
+    <RSVP />
+    <AudioPlayer />
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Hecho con 💙 para Jheseft &amp; Cris · Junio 2026</p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --color-cream: #f5fbff;
+    --color-beige: #eef6fb;
+    --color-beige-dark: #c8dff0;
+    --color-blue-baby: #a8d4e6;
+    --color-blue-light: #d4ebf7;
+    --color-blue-mid: #5a9ec8;
+    --color-brown-warm: #8b7055;
+    --color-brown-light: #c4a062;
+    --color-brown-dark: #9f7654;
+    --color-text: #2a4a6a;
+    --color-text-soft: #5a7a9a;
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Nunito', sans-serif;
+    --shadow-soft: 0 4px 24px rgba(90, 158, 200, 0.12);
+    --shadow-card: 0 8px 32px rgba(90, 158, 200, 0.18);
+    --radius-card: 24px;
+    --radius-pill: 50px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-cream);
+    color: var(--color-text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 { font-family: var(--font-display); color: var(--color-brown-dark); }
+
+  section { padding: 64px 20px; }
+
+  .container { max-width: 800px; margin: 0 auto; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-12px); }
+  }
+
+  @keyframes pulse-ring {
+    0%   { transform: scale(0.8); opacity: 0.8; }
+    100% { transform: scale(1.4); opacity: 0; }
+  }
+
+  @keyframes wave {
+    0%, 100% { transform: scaleY(0.5); }
+    50%       { transform: scaleY(1.5); }
+  }
+
+  .fade-in { opacity: 0; animation: fadeInUp 0.8s ease forwards; }
+  .fade-in-delay-1 { animation-delay: 0.2s; }
+  .fade-in-delay-2 { animation-delay: 0.4s; }
+  .fade-in-delay-3 { animation-delay: 0.6s; }
+  .fade-in-delay-4 { animation-delay: 0.8s; }
+
+  .section-title {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    text-align: center;
+    margin-bottom: 8px;
+    color: var(--color-brown-dark);
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--color-text-soft);
+    font-size: 1rem;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: var(--color-beige-dark);
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--color-beige); }
+  ::-webkit-scrollbar-thumb { background: var(--color-blue-mid); border-radius: 3px; }
+
+  .footer {
+    background: var(--color-brown-dark);
+    color: var(--color-beige);
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 0.85rem;
+    opacity: 0.9;
+  }
+</style>

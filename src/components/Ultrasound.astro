@@ -1,0 +1,209 @@
+---
+---
+
+<section class="ultrasound" id="ultrasound">
+  <img src="/images/sonaja.png"    alt="" class="ultrasound__deco ultrasound__deco--sonaja"   aria-hidden="true" />
+  <img src="/images/chupon.png"    alt="" class="ultrasound__deco ultrasound__deco--chupon"   aria-hidden="true" />
+  <img src="/images/zapatitos.png" alt="" class="ultrasound__deco ultrasound__deco--zapatitos" aria-hidden="true" />
+  <img src="/images/corazon-azul.png"   alt="" class="ultrasound__deco us__heart us__heart--1"  aria-hidden="true" />
+  <img src="/images/corazon-marron.png" alt="" class="ultrasound__deco us__heart us__heart--2"  aria-hidden="true" />
+  <img src="/images/corazon-azul.png"   alt="" class="ultrasound__deco us__heart us__heart--3"  aria-hidden="true" />
+  <img src="/images/corazon-marron.png" alt="" class="ultrasound__deco us__heart us__heart--4"  aria-hidden="true" />
+  <img src="/images/corazon-azul.png"   alt="" class="ultrasound__deco us__heart us__heart--5"  aria-hidden="true" />
+  <img src="/images/corazon-marron.png" alt="" class="ultrasound__deco us__heart us__heart--6"  aria-hidden="true" />
+  <img src="/images/corazon-azul.png"   alt="" class="ultrasound__deco us__heart us__heart--7"  aria-hidden="true" />
+  <img src="/images/corazon-marron.png" alt="" class="ultrasound__deco us__heart us__heart--8"  aria-hidden="true" />
+  <div class="container">
+    <h2 class="section-title fade-in">Nuestro pequeño</h2>
+    <div class="section-divider fade-in fade-in-delay-1">
+      <img src="/images/oso-solo.png" alt="" width="36" height="36" style="object-fit:contain;" aria-hidden="true" />
+    </div>
+
+    <div class="ultrasound__frame fade-in fade-in-delay-2">
+      <!-- Decorative dots pattern -->
+      <div class="ultrasound__dots"></div>
+
+      <div class="ultrasound__img-wrap">
+        <img
+          src="/images/ultrasonido.jpg"
+          alt="Ultrasonido de nuestro bebé"
+          class="ultrasound__img"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div class="ultrasound__placeholder" style="display:none;">
+          <div class="ultrasound__placeholder-inner">
+            <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
+              <rect x="5" y="5" width="60" height="60" rx="8" fill="var(--color-blue-mid)" opacity="0.2"/>
+              <ellipse cx="35" cy="30" rx="18" ry="22" fill="none" stroke="var(--color-blue-mid)" stroke-width="2" stroke-dasharray="4 3"/>
+              <ellipse cx="35" cy="30" rx="10" ry="13" fill="var(--color-blue-light)" opacity="0.6"/>
+              <circle cx="31" cy="25" r="2.5" fill="var(--color-blue-mid)" opacity="0.8"/>
+              <path d="M28 35 Q35 42 42 35" stroke="var(--color-blue-mid)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+            <p>Ultrasonido</p>
+            <small>Reemplaza src/images/ultrasound.png</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Corner decorations -->
+      <div class="frame-corner frame-corner--tl"></div>
+      <div class="frame-corner frame-corner--tr"></div>
+      <div class="frame-corner frame-corner--bl"></div>
+      <div class="frame-corner frame-corner--br"></div>
+    </div>
+
+    <p class="ultrasound__caption fade-in fade-in-delay-3">
+      "Instruye al niño en el camino correcto, y aun en su vejez no lo abandonará."<br/>
+      <span class="ultrasound__caption-ref">(Proverbios 22:6)</span>
+    </p>
+  </div>
+</section>
+
+<style>
+  .ultrasound {
+    background: linear-gradient(180deg, var(--color-beige) 0%, var(--color-cream) 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ultrasound__deco {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .ultrasound__deco--sonaja {
+    top: 10px;
+    right: -10px;
+    width: clamp(80px, 20vw, 130px);
+    opacity: 0.85;
+    transform: rotate(15deg);
+  }
+
+  .ultrasound__deco--chupon {
+    bottom: 10px;
+    left: -10px;
+    width: clamp(70px, 18vw, 110px);
+    opacity: 0.8;
+    transform: rotate(-10deg);
+  }
+
+  .ultrasound__deco--zapatitos {
+    bottom: 0;
+    right: -10px;
+    width: clamp(80px, 20vw, 130px);
+    opacity: 0.85;
+    transform: rotate(10deg);
+  }
+
+  .us__heart {
+    opacity: 0.75;
+    animation: float 7s ease-in-out infinite;
+  }
+
+  .us__heart--1 { top: 5%;    left: 4%;   width: clamp(36px, 9vw, 56px);  animation-delay: 0s;   }
+  .us__heart--2 { top: 10%;   left: 2%;   width: clamp(28px, 7vw, 44px);  animation-delay: 0.8s; }
+  .us__heart--3 { top: 6%;    right: 5%;  width: clamp(32px, 8vw, 50px);  animation-delay: 1.5s; }
+  .us__heart--4 { top: 25%;   right: 3%;  width: clamp(26px, 6vw, 40px);  animation-delay: 2.2s; }
+  .us__heart--5 { top: 40%;   left: 3%;   width: clamp(28px, 7vw, 44px);  animation-delay: 0.4s; }
+  .us__heart--6 { top: 38%;   right: 4%;  width: clamp(30px, 7vw, 46px);  animation-delay: 1.2s; }
+  .us__heart--7 { bottom: 20%; left: 5%;  width: clamp(24px, 6vw, 38px);  animation-delay: 1.9s; }
+  .us__heart--8 { bottom: 15%; right: 6%; width: clamp(28px, 7vw, 44px);  animation-delay: 0.6s; }
+
+  .ultrasound__frame {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .ultrasound__dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--color-blue-baby) 1.5px, transparent 1.5px);
+    background-size: 18px 18px;
+    opacity: 0.25;
+    border-radius: var(--radius-card);
+    pointer-events: none;
+  }
+
+  .ultrasound__img-wrap {
+    width: clamp(300px, 90vw, 500px);
+    height: clamp(300px, 90vw, 500px);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(123, 184, 212, 0.25), 0 4px 16px rgba(139, 111, 94, 0.1);
+    border: 5px solid white;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ultrasound__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(1.05) contrast(1.05);
+  }
+
+  .ultrasound__placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #0a0a1a 0%, #1a2a3a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ultrasound__placeholder-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-blue-light);
+  }
+
+  .ultrasound__placeholder-inner p {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--color-blue-baby);
+  }
+
+  .ultrasound__placeholder-inner small {
+    font-size: 0.7rem;
+    opacity: 0.6;
+    color: var(--color-blue-light);
+  }
+
+  /* Corner decorations — mismo estilo que ParentsPhoto */
+  .frame-corner {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-color: var(--color-blue-mid);
+    border-style: solid;
+    z-index: 2;
+  }
+
+  .frame-corner--tl { top: -10px; left: -10px; border-width: 3px 0 0 3px; border-radius: 6px 0 0 0; }
+  .frame-corner--tr { top: -10px; right: -10px; border-width: 3px 3px 0 0; border-radius: 0 6px 0 0; }
+  .frame-corner--bl { bottom: -10px; left: -10px; border-width: 0 0 3px 3px; border-radius: 0 0 0 6px; }
+  .frame-corner--br { bottom: -10px; right: -10px; border-width: 0 3px 3px 0; border-radius: 0 0 6px 0; }
+
+  .ultrasound__caption {
+    color: var(--color-text-soft);
+    font-size: 1rem;
+    font-style: italic;
+    max-width: 420px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  .ultrasound__caption-ref {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--color-blue-mid);
+    font-size: 0.9rem;
+  }
+</style>

@@ -1,0 +1,191 @@
+---
+---
+
+<!-- Floating Audio Player -->
+<div class="audio-player" id="audio-player">
+  <button class="audio-player__btn" id="audio-btn" aria-label="Reproducir / Pausar música">
+    <!-- Waves (visible when playing) -->
+    <div class="audio-player__waves" id="audio-waves">
+      <span class="wave"></span>
+      <span class="wave"></span>
+      <span class="wave"></span>
+      <span class="wave"></span>
+      <span class="wave"></span>
+    </div>
+    <!-- Play icon -->
+    <svg class="audio-player__icon audio-player__icon--play" id="icon-play" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M8 5v14l11-7z"/>
+    </svg>
+    <!-- Pause icon -->
+    <svg class="audio-player__icon audio-player__icon--pause" id="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+      <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+    </svg>
+  </button>
+  <div class="audio-player__label" id="audio-label">♪ Música</div>
+</div>
+
+<audio id="bg-audio" preload="auto">
+  <source src="/audio/Ice-Age.mp3" type="audio/mpeg" />
+</audio>
+
+<script>
+  const audio    = document.getElementById('bg-audio') as HTMLAudioElement;
+  const btn      = document.getElementById('audio-btn');
+  const waves    = document.getElementById('audio-waves');
+  const iconPlay = document.getElementById('icon-play');
+  const iconPause = document.getElementById('icon-pause');
+  const label    = document.getElementById('audio-label');
+
+  let isPlaying = false;
+  let userInteracted = false;
+
+  function setPlaying(playing: boolean) {
+    isPlaying = playing;
+    if (waves)    waves.style.display    = playing ? 'flex' : 'none';
+    if (iconPlay) iconPlay.style.display = playing ? 'none' : 'block';
+    if (iconPause) iconPause.style.display = playing ? 'block' : 'none';
+    if (label)    label.textContent      = playing ? '♪ Sonando' : '♪ Música';
+  }
+
+  async function tryAutoplay() {
+    if (!audio) return;
+    audio.currentTime = 45;
+    audio.volume = 0.4;
+    audio.muted = true;
+    try {
+      await audio.play();
+      audio.muted = false;
+      setPlaying(true);
+    } catch {
+      setPlaying(false);
+    }
+  }
+
+  // Try autoplay on load
+  window.addEventListener('load', () => { tryAutoplay(); });
+
+  // User interaction toggle
+  btn?.addEventListener('click', async () => {
+    if (!audio) return;
+    if (!userInteracted) {
+      userInteracted = true;
+      audio.muted = false;
+    }
+    if (isPlaying) {
+      audio.pause();
+      setPlaying(false);
+    } else {
+      try {
+        audio.volume = 0.4;
+        await audio.play();
+        setPlaying(true);
+      } catch {
+        setPlaying(false);
+      }
+    }
+  });
+
+  // Sync state with audio events
+  audio?.addEventListener('play',  () => setPlaying(true));
+  audio?.addEventListener('pause', () => setPlaying(false));
+  audio?.addEventListener('ended', () => {
+    if (audio) {
+      audio.currentTime = 45;
+      audio.play();
+    }
+  });
+</script>
+
+<style>
+  .audio-player {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .audio-player__btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background: var(--color-blue-mid);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(123, 184, 212, 0.5);
+    position: relative;
+    transition: transform 0.2s ease, background 0.2s ease;
+    overflow: hidden;
+  }
+
+  .audio-player__btn:hover {
+    background: var(--color-brown-warm);
+    transform: scale(1.08);
+  }
+
+  .audio-player__btn::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid var(--color-blue-baby);
+    animation: pulse-ring 2s linear infinite;
+    opacity: 0;
+  }
+
+  .audio-player__btn:has(+ * [id="audio-waves"]) .audio-player__btn::before,
+  .audio-player__waves[style*="flex"] ~ .audio-player__btn::before {
+    opacity: 1;
+  }
+
+  .audio-player__icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Sound waves */
+  .audio-player__waves {
+    display: none;
+    align-items: center;
+    gap: 2px;
+    position: absolute;
+  }
+
+  .wave {
+    width: 3px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 2px;
+    animation: wave 0.8s ease-in-out infinite;
+  }
+
+  .wave:nth-child(1) { height: 8px;  animation-delay: 0s;    }
+  .wave:nth-child(2) { height: 16px; animation-delay: 0.12s; }
+  .wave:nth-child(3) { height: 22px; animation-delay: 0.24s; }
+  .wave:nth-child(4) { height: 16px; animation-delay: 0.36s; }
+  .wave:nth-child(5) { height: 8px;  animation-delay: 0.48s; }
+
+  .audio-player__label {
+    font-size: 0.7rem;
+    background: rgba(255,255,255,0.9);
+    color: var(--color-text-soft);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    white-space: nowrap;
+  }
+
+  @keyframes wave {
+    0%, 100% { transform: scaleY(0.5); }
+    50%       { transform: scaleY(1.2); }
+  }
+</style>

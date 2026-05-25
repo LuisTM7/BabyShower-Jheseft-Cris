@@ -1,0 +1,282 @@
+---
+---
+
+<section class="hero" id="hero">
+
+  <!-- Sol -->
+  <img src="/images/solaplanado.png" alt="" class="hero__deco hero__sol" aria-hidden="true" />
+
+  <!-- Resorte decorativo -->
+  <img src="/images/resorte.png" alt="" class="hero__deco hero__resorte" aria-hidden="true" />
+
+  <!-- Estrellas -->
+  <img src="/images/estrella1.png" alt="" class="hero__deco hero__star-img hero__star-img--1" aria-hidden="true" />
+  <img src="/images/estrella2.png" alt="" class="hero__deco hero__star-img hero__star-img--2" aria-hidden="true" />
+  <img src="/images/estrella1.png" alt="" class="hero__deco hero__star-img hero__star-img--3" aria-hidden="true" />
+  <img src="/images/estrella2.png" alt="" class="hero__deco hero__star-img hero__star-img--4" aria-hidden="true" />
+  <img src="/images/estrella1.png" alt="" class="hero__deco hero__star-img hero__star-img--5" aria-hidden="true" />
+  <img src="/images/estrella2.png" alt="" class="hero__deco hero__star-img hero__star-img--6" aria-hidden="true" />
+  <img src="/images/estrella1.png" alt="" class="hero__deco hero__star-img hero__star-img--7" aria-hidden="true" />
+  <img src="/images/estrella2.png" alt="" class="hero__deco hero__star-img hero__star-img--8" aria-hidden="true" />
+
+  <!-- Nubes -->
+  <img src="/images/nube.png"  alt="" class="hero__deco hero__cloud hero__cloud--left"  aria-hidden="true" />
+  <img src="/images/nube2.png" alt="" class="hero__deco hero__cloud hero__cloud--right" aria-hidden="true" />
+  <img src="/images/nube.png"  alt="" class="hero__deco hero__cloud hero__cloud--center" aria-hidden="true" />
+
+  <!-- Hot Air Balloon Bear -->
+  <div class="hero__balloon-wrap">
+    <img src="/images/oso.png" alt="Osito en globo aerostático" class="balloon-svg" />
+  </div>
+
+  <!-- Text content -->
+  <div class="hero__content">
+    <p class="hero__pre fade-in fade-in-delay-1">Te invitamos a celebrar con nosotros la llegada de nuestro pequeño hijo junto a nuestros seres queridos</p>
+    <h1 class="hero__title fade-in fade-in-delay-2">Baby Shower</h1>
+    <h2 class="hero__names fade-in fade-in-delay-3">Jheseft &amp; Cris</h2>
+    <div class="hero__badge fade-in fade-in-delay-4">
+      <span>💙</span>
+      <span>¡Es un niño!</span>
+    </div>
+    <div class="hero__countdown fade-in fade-in-delay-4" id="hero-countdown">
+      <div class="hero__cd-card">
+        <span class="hero__cd-num" id="h-days">--</span>
+        <span class="hero__cd-label">Días</span>
+      </div>
+      <span class="hero__cd-sep">:</span>
+      <div class="hero__cd-card">
+        <span class="hero__cd-num" id="h-hours">--</span>
+        <span class="hero__cd-label">Hrs</span>
+      </div>
+      <span class="hero__cd-sep">:</span>
+      <div class="hero__cd-card">
+        <span class="hero__cd-num" id="h-mins">--</span>
+        <span class="hero__cd-label">Min</span>
+      </div>
+      <span class="hero__cd-sep">:</span>
+      <div class="hero__cd-card">
+        <span class="hero__cd-num" id="h-secs">--</span>
+        <span class="hero__cd-label">Seg</span>
+      </div>
+    </div>
+  </div>
+
+<script>
+  function heroCountdown() {
+    const target = new Date('2026-06-14T20:00:00');
+    const now = new Date();
+    const diff = target.getTime() - now.getTime();
+    if (diff <= 0) return;
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const el = (id: string) => document.getElementById(id);
+    el('h-days')!.textContent  = String(d).padStart(2,'0');
+    el('h-hours')!.textContent = String(h).padStart(2,'0');
+    el('h-mins')!.textContent  = String(m).padStart(2,'0');
+    el('h-secs')!.textContent  = String(s).padStart(2,'0');
+  }
+  heroCountdown();
+  setInterval(heroCountdown, 1000);
+</script>
+
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #e8f4fd 0%, #d4ebf7 40%, #eef7fd 70%, #fdf8f0 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 20px 64px;
+    text-align: center;
+  }
+
+  /* Decorative elements base */
+  .hero__deco {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Sol */
+  .hero__sol {
+    top: -30px;
+    right: -20px;
+    width: clamp(90px, 22vw, 150px);
+    opacity: 0.9;
+    animation: float 10s ease-in-out infinite;
+  }
+
+  /* Resorte */
+  .hero__resorte {
+    bottom: 6%;
+    left: 2%;
+    width: clamp(50px, 12vw, 90px);
+    opacity: 0.85;
+    animation: float 7s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  /* Estrellas */
+  .hero__star-img {
+    width: clamp(28px, 7vw, 50px);
+    animation: float 6s ease-in-out infinite;
+  }
+  .hero__star-img--1 { top: 12%;   left: 5%;  animation-delay: 0s;   }
+  .hero__star-img--2 { top: 22%;   right: 18%; animation-delay: 0.8s; width: clamp(22px, 5vw, 38px); }
+  .hero__star-img--3 { top: 45%;   left: 8%;  animation-delay: 1.6s; width: clamp(20px, 4vw, 32px); }
+  .hero__star-img--4 { top: 38%;   right: 6%; animation-delay: 2.4s; }
+  .hero__star-img--5 { bottom: 22%; right: 14%; animation-delay: 3.2s; width: clamp(18px, 4vw, 30px); }
+  .hero__star-img--6 { top: 30%;   left: 3%;  animation-delay: 1s;   width: clamp(18px, 4vw, 30px); }
+  .hero__star-img--7 { top: 60%;   left: 6%;  animation-delay: 2s;   width: clamp(22px, 5vw, 36px); }
+  .hero__star-img--8 { bottom: 35%; left: 10%; animation-delay: 3s;   width: clamp(16px, 3.5vw, 26px); }
+
+  /* Clouds */
+  .hero__cloud {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .hero__cloud--left {
+    top: 8%;
+    left: -30px;
+    width: clamp(150px, 38vw, 260px);
+    animation-delay: 0s;
+  }
+
+  .hero__cloud--right {
+    top: 15%;
+    right: -30px;
+    width: clamp(130px, 32vw, 220px);
+    animation-delay: 2s;
+  }
+
+  .hero__cloud--center {
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(100px, 26vw, 170px);
+    animation-delay: 4s;
+    opacity: 0.8;
+  }
+
+  /* Balloon */
+  .hero__balloon-wrap {
+    position: relative;
+    z-index: 1;
+    animation: float 5s ease-in-out infinite;
+    margin-bottom: -8px;
+    opacity: 1;
+  }
+
+  .balloon-svg {
+    width: clamp(180px, 50vw, 260px);
+    filter: drop-shadow(0 12px 28px rgba(90, 158, 200, 0.25));
+  }
+
+  /* Text */
+  .hero__content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero__pre {
+    font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+    color: #7098b8;
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .hero__title {
+    font-size: clamp(3rem, 12vw, 5.5rem);
+    line-height: 1.05;
+    color: #9f7654;
+    margin-bottom: 6px;
+    text-shadow: 0 2px 12px rgba(90, 158, 200, 0.2);
+  }
+
+  .hero__names {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    font-weight: 400;
+    font-style: italic;
+    color: #5a7a9a;
+    margin-bottom: 18px;
+  }
+
+  .hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #5a9ec8;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 10px 28px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 14px;
+    box-shadow: 0 4px 16px rgba(90, 158, 200, 0.4);
+    letter-spacing: 0.02em;
+  }
+
+  .hero__date {
+    color: #7098b8;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .hero__countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 28px;
+  }
+
+  .hero__cd-card {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(90,158,200,0.25);
+    border-radius: 12px;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 52px;
+    box-shadow: 0 2px 12px rgba(90,158,200,0.15);
+  }
+
+  .hero__cd-num {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    font-weight: 700;
+    color: #2a5a8a;
+    line-height: 1;
+  }
+
+  .hero__cd-label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #7098b8;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  .hero__cd-sep {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #5a9ec8;
+    margin-bottom: 14px;
+  }
+</style>

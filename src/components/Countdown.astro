@@ -1,0 +1,154 @@
+---
+---
+
+<section class="countdown" id="countdown" style="display:none;">
+  <div class="container">
+    <h2 class="section-title fade-in">La espera...</h2>
+    <p class="section-subtitle fade-in fade-in-delay-1">Tiempo que falta para el gran día</p>
+
+    <div class="countdown__cards fade-in fade-in-delay-2" id="countdown-cards">
+      <div class="countdown__card">
+        <span class="countdown__num" id="cd-days">--</span>
+        <span class="countdown__label">Días</span>
+      </div>
+      <div class="countdown__sep">:</div>
+      <div class="countdown__card">
+        <span class="countdown__num" id="cd-hours">--</span>
+        <span class="countdown__label">Horas</span>
+      </div>
+      <div class="countdown__sep">:</div>
+      <div class="countdown__card">
+        <span class="countdown__num" id="cd-minutes">--</span>
+        <span class="countdown__label">Minutos</span>
+      </div>
+      <div class="countdown__sep">:</div>
+      <div class="countdown__card">
+        <span class="countdown__num" id="cd-seconds">--</span>
+        <span class="countdown__label">Segundos</span>
+      </div>
+    </div>
+
+    <div class="countdown__event fade-in fade-in-delay-3" id="countdown-event" style="display:none;">
+      <p class="countdown__celebrate">🎉 ¡El gran día ha llegado! ¡Bienvenido al mundo! 💙</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function updateCountdown() {
+    const target = new Date('2026-06-14T20:00:00');
+    const now = new Date();
+    const diff = target.getTime() - now.getTime();
+
+    const daysEl     = document.getElementById('cd-days');
+    const hoursEl    = document.getElementById('cd-hours');
+    const minutesEl  = document.getElementById('cd-minutes');
+    const secondsEl  = document.getElementById('cd-seconds');
+    const cardsEl    = document.getElementById('countdown-cards');
+    const eventEl    = document.getElementById('countdown-event');
+
+    if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+    if (diff <= 0) {
+      if (cardsEl) cardsEl.style.display = 'none';
+      if (eventEl) eventEl.style.display = 'block';
+      return;
+    }
+
+    const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    daysEl.textContent    = String(days).padStart(2, '0');
+    hoursEl.textContent   = String(hours).padStart(2, '0');
+    minutesEl.textContent = String(minutes).padStart(2, '0');
+    secondsEl.textContent = String(seconds).padStart(2, '0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+<style>
+  .countdown {
+    background: linear-gradient(135deg, var(--color-blue-light) 0%, var(--color-beige) 100%);
+    text-align: center;
+  }
+
+  .countdown__cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .countdown__card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px 16px;
+    min-width: clamp(72px, 18vw, 110px);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    border: 2px solid var(--color-blue-light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .countdown__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-blue-baby), var(--color-blue-mid));
+  }
+
+  .countdown__num {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    font-weight: 700;
+    color: var(--color-brown-dark);
+    line-height: 1;
+    transition: transform 0.15s ease;
+  }
+
+  .countdown__label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-text-soft);
+    font-weight: 600;
+  }
+
+  .countdown__sep {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 7vw, 3rem);
+    color: var(--color-blue-mid);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    margin-top: 20px;
+  }
+
+  .countdown__celebrate {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    color: var(--color-brown-dark);
+    padding: 32px;
+    background: white;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  @media (max-width: 400px) {
+    .countdown__sep { display: none; }
+    .countdown__cards { gap: 12px; }
+  }
+</style>
